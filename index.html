@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shield Media | Global Design Authority</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Critical CSS for initial load if needed, otherwise handled by index.css */
+  </style>
+</head>
+
+<body>
+  <div class="noise-overlay"></div>
+  <div id="cursor"></div>
+  <div id="root"></div>
+  <script>
+    const cursor = document.getElementById('cursor');
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    // Set to 1 for instant response (no delay/drag)
+    const easing = 1;
+
+    // Smooth cursor lerp
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // Check for hover targets
+      const target = e.target;
+      if (target.closest('a') || target.closest('button') || target.closest('[data-hover]')) {
+        document.body.classList.add('hovering');
+      } else {
+        document.body.classList.remove('hovering');
+      }
+    });
+
+    function animate() {
+      cursorX += (mouseX - cursorX) * easing;
+      cursorY += (mouseY - cursorY) * easing;
+
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+  </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
