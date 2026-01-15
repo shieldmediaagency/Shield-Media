@@ -53,8 +53,8 @@ export const CONTENT = {
       {
         id: "03",
         title: "Web Design",
-        description: "Immersive WebGL architectures.",
-        tags: ['Next.js', 'WebGL'],
+        description: "Immersive Web architectures.",
+        tags: ['UI/UX', 'Web'],
         // Futuristic UI/Code
         image: "/images/expertise-3.webp",
         colSpan: "md:col-span-4",

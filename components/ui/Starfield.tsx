@@ -28,7 +28,7 @@ export const Starfield: React.FC = () => {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       // Even fewer stars for better performance
-      const divider = isMobile ? 15000 : prefersReducedMotion ? 20000 : 8000;
+      const divider = isMobile ? 5000 : prefersReducedMotion ? 10000 : 3000;
       const starCount = Math.floor((canvas.width * canvas.height) / divider);
 
       for (let i = 0; i < starCount; i++) {
