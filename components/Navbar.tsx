@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { CONTENT } from '../constants';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
-interface NavbarProps {
-  onOpenContact: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
+export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -29,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
   const handleConnectClick = () => {
     setIsMobileOpen(false);
-    onOpenContact();
+    window.location.href = `mailto:${CONTENT.contact.email}?subject=New Project Inquiry`;
   };
 
   const scrollToSection = (id: string) => {
@@ -134,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
 
           <div className={`mt-16 transition-all duration-1000 delay-500 border-t border-white/10 pt-8 ${isMobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <p className="text-neutral-500 font-mono text-xs mb-2 tracking-widest">BENGALURU / MUMBAI</p>
-            <p className="text-white font-display text-xl tracking-wide">HELLO@SHIELDMEDIA.COM</p>
+            <p className="text-white font-display text-xl tracking-wide">{CONTENT.contact.email.toUpperCase()}</p>
           </div>
         </div>
       </div>
