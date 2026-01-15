@@ -183,15 +183,65 @@ export const CONTENT = {
     email: "business@shieldmedia.in",
     phone: "+91 999 999 9999"
   },
+  legal: {
+    privacy: {
+      title: "Privacy Policy",
+      lastUpdated: "January 15, 2026",
+      content: `
+        <h3 class="text-xl font-bold text-white mb-4">1. No Data Collection</h3>
+        <p class="mb-4"><strong>Shield Media does not automatically collect, store, or process any personal data from visitors to this website.</strong> We do not use contact forms, subscriber lists, or database inputs on this interface. Your visit is entirely private.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">2. Voluntary Communication</h3>
+        <p class="mb-4">Information is only retained if you voluntarily choose to contact us via email (business@shieldmedia.in). In such cases, your email address and message contents are strictly confidential and used solely for the purpose of business correspondence.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">3. Data Security</h3>
+        <p class="mb-4">While we do not store user data on this site, we maintain strict security protocols for our internal communications. We do not sell, trade, or transfer any information to outside parties.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">4. Global Compliance</h3>
+        <p class="mb-4">This policy complies with the <strong>Information Technology Act, 2000 (India)</strong> and adhering to the principles of <strong>GDPR</strong> regarding data minimization. Since no data is collected, no consent banners are required.</p>
+      `
+    },
+    terms: {
+      title: "Terms of Service",
+      lastUpdated: "January 15, 2026",
+      content: `
+        <h3 class="text-xl font-bold text-white mb-4">1. Usage Agreement</h3>
+        <p class="mb-4">By accessing this interface, you agree to these terms. This site acts as a digital portfolio and capability statement for Shield Media.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">2. Intellectual Property</h3>
+        <p class="mb-4"><strong>All systems, designs, code, and visual assets on this domain are the exclusive intellectual property of Shield Media.</strong> Unauthorized reproduction, reverse engineering, or scraping of this site is strictly prohibited and will result in legal action under Indian copyright laws.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">3. Disclaimer</h3>
+        <p class="mb-4">This website is provided "as is". Shield Media makes no warranties, expressed or implied, regarding the operation of this site. We are not liable for any damages arising from the use of this portfolio.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">4. Jurisdiction</h3>
+        <p class="mb-4">Shield Media operates under the laws of <strong>India</strong>. Any disputes are subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.</p>
+      `
+    },
+    cookies: {
+      title: "Cookie Policy",
+      lastUpdated: "January 15, 2026",
+      content: `
+        <h3 class="text-xl font-bold text-white mb-4">1. Zero-Tracker Policy</h3>
+        <p class="mb-4"><strong>This website does not utilize cookies, trackers, or analytics scripts.</strong></p>
+
+        <h3 class="text-xl font-bold text-white mb-4">2. Client-Side Storage</h3>
+        <p class="mb-4">We do not store any information on your device. The site is stateless and designed for absolute privacy.</p>
+
+        <h3 class="text-xl font-bold text-white mb-4">3. Third-Party Requests</h3>
+        <p class="mb-4">We do not make external requests to advertising networks or social media pixels. Your browsing behavior on this site remains known only to you.</p>
+      `
+    }
+  },
   footer: {
     tagline: "Engineered for dominance. Designed for impact.",
     hubs: ["Bengaluru", "Mumbai"],
     // Socials removed
     socials: [],
     legal: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Cookies", href: "#" }
+      { label: "Privacy Policy", key: "privacy" },
+      { label: "Terms of Service", key: "terms" },
+      { label: "Cookies", key: "cookies" }
     ],
     copyright: "© 2025 Shield Media Inc."
   }
