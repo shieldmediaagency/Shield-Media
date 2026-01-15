@@ -23,11 +23,12 @@ export const Starfield: React.FC = () => {
     const createStars = () => {
       stars = [];
       // Detect low-power mode or mobile
+      // Detect low-power mode or mobile
       const isMobile = window.matchMedia("(pointer: coarse)").matches;
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // Much fewer stars on mobile/weak devices
-      const divider = isMobile ? 8000 : prefersReducedMotion ? 10000 : 4000;
+      // Even fewer stars for better performance
+      const divider = isMobile ? 15000 : prefersReducedMotion ? 20000 : 8000;
       const starCount = Math.floor((canvas.width * canvas.height) / divider);
 
       for (let i = 0; i < starCount; i++) {
@@ -67,7 +68,7 @@ export const Starfield: React.FC = () => {
         ctx.fill();
 
         // Twinkle - only some stars per frame for performance
-        if (Math.random() < 0.1) {
+        if (Math.random() < 0.03) {
           star.opacity += (Math.random() - 0.5) * 0.05;
           star.opacity = Math.max(0.1, Math.min(1, star.opacity));
         }
@@ -100,9 +101,8 @@ export const Starfield: React.FC = () => {
         }
       }
 
-      // Randomly spawn shooting stars
-      // Optimized frequency
-      if (Math.random() < 0.01) {
+      // Randomly spawn shooting stars - rare for performance
+      if (Math.random() < 0.003) {
         createShootingStar();
       }
 

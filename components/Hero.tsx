@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[100dvh] bg-black text-white overflow-hidden selection:bg-neon-lime selection:text-black">
+    <section className="relative w-full h-screen bg-black text-white overflow-hidden selection:bg-neon-lime selection:text-black">
 
       {/* --- LAYER 1: CINEMATIC BACKGROUND --- */}
       <div className="absolute inset-0 z-0">
@@ -114,7 +114,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom Elements - Centered on mobile via justify-center, space-between on desktop */}
-        <div className="absolute bottom-32 left-0 right-0 px-12 md:px-20 flex justify-center md:justify-between items-end">
+        <div className="absolute bottom-12 md:bottom-32 left-0 right-0 px-12 md:px-20 flex justify-center md:justify-between items-end z-30">
           {/* Scroll Indicator */}
           <button
             onClick={() => document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' })}

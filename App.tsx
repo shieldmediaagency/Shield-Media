@@ -10,7 +10,6 @@ import { Contact } from './components/Contact';
 import { Preloader } from './components/Preloader';
 import { Footer } from './components/Footer';
 import { Cursor } from './components/ui/Cursor';
-import { AmbientBackground } from './components/ui/AmbientBackground';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -18,9 +17,8 @@ const App: React.FC = () => {
   return (
     <>
       <Cursor />
-      <AmbientBackground />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
-      <div className={`bg-transparent min-h-screen text-white selection:bg-white selection:text-black overflow-x-hidden relative transition-opacity duration-1000 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`bg-transparent min-h-screen text-white selection:bg-white selection:text-black relative transition-opacity duration-1000 ${loading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100 overflow-x-hidden'}`}>
         <Navbar />
 
         {/* Main Content Wrapper - needs margin-bottom to reveal fixed footer */}

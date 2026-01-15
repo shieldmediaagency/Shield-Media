@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* Theme Configuration */
+@theme {
+    --font-sans: 'Manrope', sans-serif;
+    --font-display: 'Oswald', sans-serif;
+
+    --color-neon-lime: #ccff00;
+    --color-shield-black: #050505;
+    --color-shield-gray: #121212;
+    --color-shield-border: #1F1F1F;
+}
+
+/* CSS Variables */
+:root {
+    --font-primary: 'Manrope', sans-serif;
+    --font-display: 'Oswald', sans-serif;
+    --color-accent: #ccff00;
+}
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #050505;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll causing vertical layout shifts */
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: #050505;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Strict overflow control */
+    width: 100%;
+    height: 100%;
+    cursor: none;
+}
+
+/* Re-enable cursor on touch devices */
+@media (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: -0.02em;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-ticker {
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(400%);
+    }
+}
+
+.animate-scan {
+    animation: scan 4s linear infinite;
+}
+
+/* Glitch Effect */
+.glitch-hover {
+    position: relative;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #050505;
+}
+
+.glitch-hover::before {
+    left: 2px;
+    text-shadow: -1px 0 #ccff00;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    opacity: 0;
+}
+
+.glitch-hover::after {
+    left: -2px;
+    text-shadow: -1px 0 #ff00c1;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+    opacity: 0;
+}
+
+.glitch-hover:hover::before,
+.glitch-hover:hover::after {
+    opacity: 1;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(13px, 9999px, 81px, 0);
+    }
+
+    20% {
+        clip: rect(98px, 9999px, 16px, 0);
+    }
+
+    40% {
+        clip: rect(4px, 9999px, 86px, 0);
+    }
+
+    60% {
+        clip: rect(28px, 9999px, 13px, 0);
+    }
+
+    80% {
+        clip: rect(58px, 9999px, 99px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 35px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(65px, 9999px, 100px, 0);
+    }
+
+    20% {
+        clip: rect(2px, 9999px, 1px, 0);
+    }
+
+    40% {
+        clip: rect(89px, 9999px, 34px, 0);
+    }
+
+    60% {
+        clip: rect(15px, 9999px, 69px, 0);
+    }
+
+    80% {
+        clip: rect(4px, 9999px, 18px, 0);
+    }
+
+    100% {
+        clip: rect(82px, 9999px, 5px, 0);
+    }
+}
+
+/* Reveal Section Animation */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer Reveal Logic */
+.main-content-wrapper {
+    position: relative;
+    z-index: 10;
+    background-color: #050505;
+    margin-bottom: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        margin-bottom: 0;
+    }
+}
+
+/* Fade in animation utility */
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Custom utility classes for colors */
+.bg-neon-lime {
+    background-color: #ccff00;
+}
+
+.text-neon-lime {
+    color: #ccff00;
+}
+
+.border-neon-lime {
+    border-color: #ccff00;
+}
+
+.bg-shield-black {
+    background-color: #050505;
+}
