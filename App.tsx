@@ -18,7 +18,7 @@ const App: React.FC = () => {
     <>
       <Cursor />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
-      <div className={`bg-transparent min-h-screen text-white selection:bg-white selection:text-black relative transition-opacity duration-1000 ${loading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100 overflow-x-hidden'}`}>
+      <div className={`bg-transparent text-white selection:bg-white selection:text-black relative transition-opacity duration-1000 ${loading ? 'opacity-0 overflow-hidden' : 'opacity-100'}`}>
         <Navbar />
 
         {/* Main Content Wrapper - needs margin-bottom to reveal fixed footer */}
