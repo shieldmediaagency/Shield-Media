@@ -7,15 +7,15 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 md:py-24 bg-black px-6 md:px-12 border-t border-white/10">
       <div className="max-w-[1800px] mx-auto">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
-          
+
           {/* Left Column: Info */}
           <div className="flex flex-col justify-between">
             <div>
               <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest mb-6 block">{CONTENT.contact.subtitle}</span>
               <h2 className="font-serif text-5xl md:text-7xl text-white mb-8">
-                Let's build the <span className="italic text-zinc-600">future.</span>
+                {CONTENT.contact.title}
               </h2>
               <p className="font-sans text-lg text-zinc-400 max-w-md mb-12">
                 {CONTENT.contact.description}

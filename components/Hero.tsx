@@ -14,14 +14,14 @@ const Starfield = () => {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
-    
+
     const handleResize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
 
@@ -49,18 +49,18 @@ const Starfield = () => {
     const initStars = () => {
       stars.length = 0;
       const starCount = Math.floor((width * height) / 3000); // Responsive density
-      
+
       for (let i = 0; i < starCount; i++) {
         stars.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          z: Math.random(), 
+          z: Math.random(),
           size: Math.random() * 1.5,
           opacity: Math.random() * 0.5 + 0.1
         });
       }
     };
-    
+
     initStars();
 
     const createShootingStar = () => {
@@ -82,10 +82,10 @@ const Starfield = () => {
       stars.forEach(star => {
         // Depth simulation: Closer stars (higher z) move faster
         const speed = (star.z * 0.3) + 0.05;
-        
+
         // Move stars slowly upwards for "rising" effect
         star.y -= speed;
-        
+
         // Wrap around
         if (star.y < 0) {
           star.y = height;
@@ -94,7 +94,7 @@ const Starfield = () => {
 
         // Twinkle effect
         if (Math.random() < 0.005) {
-            star.opacity = Math.random() * 0.5 + 0.2;
+          star.opacity = Math.random() * 0.5 + 0.2;
         }
 
         ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
@@ -108,7 +108,7 @@ const Starfield = () => {
       // Draw Shooting Stars
       for (let i = 0; i < shootingStars.length; i++) {
         const star = shootingStars[i];
-        
+
         // Calculate tail position (diagonal down-left movement)
         const tailX = star.x + star.length; // Coming from right
         const tailY = star.y - star.length; // Coming from top
@@ -116,7 +116,7 @@ const Starfield = () => {
         const gradient = ctx.createLinearGradient(star.x, star.y, tailX, tailY);
         gradient.addColorStop(0, `rgba(255, 255, 255, ${star.opacity})`);
         gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        
+
         ctx.beginPath();
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 2;
@@ -159,18 +159,18 @@ const Starfield = () => {
 const SplitText = ({ text }: { text: string }) => {
   return (
     <h1 className="font-serif text-[17vw] md:text-[16vw] leading-none text-white tracking-tighter mix-blend-overlay select-none flex overflow-hidden">
-        {text.split("").map((char, i) => (
-            <motion.span
-                key={i}
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "-100%" }}
-                transition={{ duration: 0.5, delay: i * 0.03, ease: [0.33, 1, 0.68, 1] }}
-                className="block"
-            >
-                {char}
-            </motion.span>
-        ))}
+      {text.split("").map((char, i) => (
+        <motion.span
+          key={i}
+          initial={{ y: "100%" }}
+          animate={{ y: 0 }}
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.5, delay: i * 0.03, ease: [0.33, 1, 0.68, 1] }}
+          className="block"
+        >
+          {char}
+        </motion.span>
+      ))}
     </h1>
   );
 };
@@ -181,21 +181,21 @@ export const Hero: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % CONTENT.hero.words.length);
-    }, 4000); 
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="relative h-screen flex flex-col justify-between items-center bg-black overflow-hidden px-6 md:px-12 pt-28 pb-8 md:pt-32 md:pb-12">
-      
+
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10" /> 
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover opacity-60 scale-110"
         >
           <source src={CONTENT.hero.videoUrl} type="video/mp4" />
@@ -205,27 +205,27 @@ export const Hero: React.FC = () => {
       <Starfield />
 
       <div className="relative z-30 w-full max-w-[1800px] mx-auto flex flex-col h-full">
-        
+
         {/* Top Meta */}
         <div className="flex justify-between items-start border-b border-white/20 pb-4 md:pb-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 2.2 }} // Wait for preloader
             className="flex flex-col"
           >
-             <span className="font-sans text-xs font-bold tracking-[0.2em] text-white uppercase">{CONTENT.appName} Media</span>
-             <span className="font-mono text-[10px] text-zinc-300 mt-1">{CONTENT.hero.est}</span>
+            <span className="font-sans text-xs font-bold tracking-[0.2em] text-white uppercase">{CONTENT.appName} Media</span>
+            <span className="font-mono text-[10px] text-zinc-300 mt-1">{CONTENT.hero.est}</span>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 2.2 }}
             className="text-right hidden md:block"
           >
-             <span className="font-sans text-xs font-bold tracking-[0.2em] text-white uppercase">Global HQ</span>
-             <span className="font-mono text-[10px] text-zinc-300 mt-1 block">{CONTENT.hero.hq}</span>
+            <span className="font-sans text-xs font-bold tracking-[0.2em] text-white uppercase">Global HQ</span>
+            <span className="font-mono text-[10px] text-zinc-300 mt-1 block">{CONTENT.hero.hq}</span>
           </motion.div>
         </div>
 
@@ -234,45 +234,44 @@ export const Hero: React.FC = () => {
           <div className="relative h-[20vw] md:h-[16vw] flex items-center justify-center w-full">
             <AnimatePresence mode="wait">
               <div key={CONTENT.hero.words[index]} className="absolute inset-0 flex items-center justify-center">
-                 <SplitText text={CONTENT.hero.words[index]} />
+                <SplitText text={CONTENT.hero.words[index]} />
               </div>
             </AnimatePresence>
           </div>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.4, duration: 1 }}
             className="mt-4 md:mt-8 font-sans text-base md:text-2xl text-zinc-200 max-w-xl md:max-w-3xl font-light tracking-wide mix-blend-difference px-4"
           >
-            We craft <span className="italic font-serif">legends</span> for the modern age. 
-            <br className="hidden md:block"/> Branding. Experience. Dominance.
+            {CONTENT.hero.subtext}
           </motion.p>
         </div>
 
         {/* Bottom Actions */}
         <div className="flex justify-between items-end">
-           <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2.5 }}
             className="flex items-center gap-4"
-           >
-             <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-             <span className="font-mono text-[10px] md:text-xs text-zinc-300 uppercase tracking-widest">{CONTENT.hero.status}</span>
-           </motion.div>
+          >
+            <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+            <span className="font-mono text-[10px] md:text-xs text-zinc-300 uppercase tracking-widest">{CONTENT.hero.status}</span>
+          </motion.div>
 
-           <motion.a 
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ delay: 2.5 }}
-             href="#work"
-             data-hover
-             className="group flex flex-col items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity"
-           >
-             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white">Scroll</span>
-             <ArrowDown className="text-white w-4 h-4 animate-bounce" />
-           </motion.a>
+          <motion.a
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.5 }}
+            href="#work"
+            data-hover
+            className="group flex flex-col items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity"
+          >
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white">Scroll</span>
+            <ArrowDown className="text-white w-4 h-4 animate-bounce" />
+          </motion.a>
         </div>
       </div>
     </section>

@@ -4,7 +4,14 @@ import { ArrowUpRight } from 'lucide-react';
 import { CONTENT } from '../content';
 
 // Spotlight Card Component with Parallax Image
-const SpotlightCard = ({ children, className = "", delay = 0, bgImage = "" }) => {
+interface SpotlightCardProps {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  bgImage?: string;
+}
+
+const SpotlightCard: React.FC<SpotlightCardProps> = ({ children, className = "", delay = 0, bgImage = "" }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
@@ -14,7 +21,7 @@ const SpotlightCard = ({ children, className = "", delay = 0, bgImage = "" }) =>
     target: divRef,
     offset: ["start end", "end start"]
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -42,14 +49,14 @@ const SpotlightCard = ({ children, className = "", delay = 0, bgImage = "" }) =>
       {/* Background Image with Parallax */}
       {bgImage && (
         <div className="absolute inset-0 z-0 overflow-hidden">
-           <motion.div style={{ y }} className="w-full h-[120%] -top-[10%] relative">
-             <img 
-               src={bgImage} 
-               alt="" 
-               className="w-full h-full object-cover opacity-30 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105"
-             />
-           </motion.div>
-           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/20" />
+          <motion.div style={{ y }} className="w-full h-[120%] -top-[10%] relative">
+            <img
+              src={bgImage}
+              alt=""
+              className="w-full h-full object-cover opacity-30 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-black/20" />
         </div>
       )}
 
@@ -61,10 +68,10 @@ const SpotlightCard = ({ children, className = "", delay = 0, bgImage = "" }) =>
           background: `radial-gradient(800px circle at ${position.x}px ${position.y}px, rgba(255,255,255,0.08), transparent 40%)`,
         }}
       />
-      
+
       {/* Content Container */}
       <div className="relative z-10 w-full h-full flex flex-col justify-between">
-         {children}
+        {children}
       </div>
     </motion.div>
   );
@@ -78,7 +85,7 @@ export const Expertise: React.FC = () => {
           <div>
             <span className="font-mono text-xs tracking-[0.3em] uppercase text-zinc-500 mb-6 block">{CONTENT.expertise.subtitle}</span>
             <h2 className="font-serif text-5xl md:text-8xl text-white">
-              Holistic <span className="italic text-zinc-600">Design.</span>
+              {CONTENT.expertise.title}
             </h2>
           </div>
           <p className="font-sans text-zinc-400 text-base md:text-xl leading-relaxed max-w-md mt-6 md:mt-0 text-left md:text-right">
@@ -91,17 +98,17 @@ export const Expertise: React.FC = () => {
             Total: 12 cols per row.
         */}
         <div className="flex overflow-x-auto gap-4 md:grid md:grid-cols-12 md:gap-6 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0 pb-8 md:pb-0 md:auto-rows-[minmax(450px,auto)]">
-          
+
           {CONTENT.expertise.items.map((item) => (
-            <SpotlightCard 
+            <SpotlightCard
               key={item.id}
               className={`p-8 md:p-12 min-h-[450px] md:min-h-0 ${item.colSpan}`}
               delay={item.delay || 0}
               bgImage={item.image}
             >
               <div className="flex justify-between items-start mb-6">
-                  <span className="font-mono text-xs text-zinc-300 border border-white/20 rounded-full px-3 py-1 bg-black/50 backdrop-blur-md">{item.id}</span>
-                  <ArrowUpRight className="text-zinc-300 w-6 h-6 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                <span className="font-mono text-xs text-zinc-300 border border-white/20 rounded-full px-3 py-1 bg-black/50 backdrop-blur-md">{item.id}</span>
+                <ArrowUpRight className="text-zinc-300 w-6 h-6 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
               </div>
               <div>
                 <h3 className="font-serif text-3xl md:text-4xl text-white mb-4">{item.title}</h3>
