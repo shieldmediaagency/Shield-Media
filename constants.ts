@@ -31,7 +31,7 @@ export const CONTENT = {
       part1: "Holistic",
       part2: "Intelligence."
     },
-    subtitle: "// Capabilities",
+    subtitle: "// Offerings_",
     description: "We don't just execute tasks. We orchestrate entire digital ecosystems.",
     items: [
       {

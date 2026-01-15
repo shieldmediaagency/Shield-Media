@@ -142,7 +142,7 @@ export const Manifesto: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
         <div>
           <span className="text-neon-lime font-mono text-xs tracking-widest uppercase mb-6 block">
-              // Philosophy
+              // Philosophy_
           </span>
           {/* Replaced static header with ScrollRevealText */}
           <ScrollRevealText text={fullText} />
