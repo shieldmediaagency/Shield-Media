@@ -162,12 +162,12 @@ export const Expertise: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 border-b border-white/10 pb-8">
           <div className="max-w-4xl relative">
             <span className="text-xs font-bold tracking-[0.2em] text-neon-lime uppercase mb-4 block">
-              // Capabilities
+              {CONTENT.expertise.subtitle}
             </span>
             <h2 className="text-5xl md:text-8xl font-display font-bold tracking-tighter text-white leading-[0.85] uppercase">
-              Holistic <br />
+              {CONTENT.expertise.title.part1} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 via-white to-neutral-400">
-                Intelligence.
+                {CONTENT.expertise.title.part2}
               </span>
             </h2>
           </div>

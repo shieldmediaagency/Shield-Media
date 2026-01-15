@@ -27,8 +27,11 @@ export const CONTENT = {
     ]
   },
   expertise: {
-    title: "Holistic Design.",
-    subtitle: "Capabilities",
+    title: {
+      part1: "Holistic",
+      part2: "Intelligence."
+    },
+    subtitle: "// Capabilities",
     description: "We don't just execute tasks. We orchestrate entire digital ecosystems.",
     items: [
       {
@@ -93,22 +96,36 @@ export const CONTENT = {
     ]
   },
   work: {
-    title: "Recent Commissions",
-    subtitle: "Selected Work",
+    title: {
+      part1: "RECENT",
+      part2: "WORK"
+    },
+    subtitle: "// Selected Projects_",
+    stats: {
+      label: "Projects Shipped",
+      value: "2022 — Current"
+    },
     items: [
       {
         client: "Aris Unitern",
         category: "Real Estate Consulting",
-        year: "2024",
+        year: "2025",
         // Modern architecture
         image: "/images/work-1.webp"
       },
       {
         client: "Cykura",
         category: "DeFi & Web3",
-        year: "2023",
+        year: "2022",
         // Blockchain / Network abstract
         image: "/images/work-2.webp"
+      },
+      {
+        client: "Ironforge",
+        category: "Web3 Infra",
+        year: "2023",
+        // Reusing Web3 abstract
+        image: "/images/work-4.webp"
       },
       {
         client: "Doodhwala",
@@ -132,8 +149,11 @@ export const CONTENT = {
     ]
   },
   about: {
-    subtitle: "The Collective",
-    title: "The New Guard.",
+    subtitle: "// The Collective_",
+    title: {
+      part1: "WE BUILD",
+      part2: "DOMINANCE."
+    },
     description: "We are a volatile mix of industry veterans and hungry college dropouts. No legacy. No rules. Just deep expertise and the raw energy to build what's next.",
     features: [
       {

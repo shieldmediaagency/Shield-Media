@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
               <span className="w-1 h-1 bg-neon-lime rounded-full animate-pulse"></span>
               <span>Experience</span>
               <span className="w-1 h-1 bg-neon-lime rounded-full animate-pulse"></span>
-              <span className="text-white">Dominance</span>
+              <span>Dominance</span>
             </div>
           </div>
         </div>

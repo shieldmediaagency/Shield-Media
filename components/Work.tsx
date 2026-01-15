@@ -28,15 +28,15 @@ export const Work: React.FC = () => {
         <div className="mb-20 md:mb-32 flex items-end justify-between border-b border-white/10 pb-8">
           <div>
             <span className="text-neon-lime font-mono text-xs tracking-widest uppercase mb-4 block">
-              // Selected Works_
+              {CONTENT.work.subtitle}
             </span>
             <h2 className="text-5xl md:text-9xl font-display font-bold text-white tracking-tighter">
-              CASE <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-white">STUDIES</span>
+              {CONTENT.work.title.part1} <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-white">{CONTENT.work.title.part2}</span>
             </h2>
           </div>
           <div className="hidden md:block text-right">
-            <span className="text-neutral-500 font-mono text-xs block mb-2">Projects Shipped</span>
-            <span className="text-2xl font-display text-white">2023 — 2025</span>
+            <span className="text-neutral-500 font-mono text-xs block mb-2">{CONTENT.work.stats.label}</span>
+            <span className="text-2xl font-display text-white">{CONTENT.work.stats.value}</span>
           </div>
         </div>
 

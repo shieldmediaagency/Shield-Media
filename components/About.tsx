@@ -211,11 +211,11 @@ export const About: React.FC = () => {
         <div className="mb-12 md:mb-24 md:flex justify-between items-end">
           <div className="max-w-4xl">
             <span className="text-neon-lime font-mono text-xs tracking-widest uppercase mb-6 block">
-              // The Collective_
+              {CONTENT.about.subtitle}
             </span>
             <h2 className="text-5xl md:text-8xl font-display font-bold text-white tracking-tighter leading-[0.9]">
-              WE BUILD<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-white">DOMINANCE.</span>
+              {CONTENT.about.title.part1}<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-white">{CONTENT.about.title.part2}</span>
             </h2>
           </div>
           {/* Animated System Status Component - Desktop Only */}
