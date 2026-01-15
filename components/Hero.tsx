@@ -31,10 +31,14 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* --- LAYER 2: STARFIELD (Subtle Motion) --- */}
-      {/* --- LAYER 2: VIDEO BACKGROUND --- */}
-      <div className="absolute inset-0 z-10 opacity-60 mix-blend-screen">
-        {/* <Starfield /> */}
+      {/* --- LAYER 2: HYBRID BACKGROUND --- */}
+      {/* Starfield for Mobile (fast, lightweight) */}
+      <div className="absolute inset-0 z-10 opacity-70 mix-blend-screen md:hidden">
+        <Starfield />
+      </div>
+
+      {/* Video for Desktop (premium experience) */}
+      <div className="absolute inset-0 z-10 opacity-60 mix-blend-screen hidden md:block">
         <video
           autoPlay
           muted
@@ -96,7 +100,7 @@ export const Hero: React.FC = () => {
                ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}
              `}
           >
-            <p className="text-lg md:text-2xl text-white font-light tracking-wide mb-2">
+            <p className="text-base md:text-2xl text-white font-light tracking-wide mb-2">
               We craft legends for the modern age.
             </p>
             <div className="flex items-center justify-center gap-3 text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] text-neutral-400">
